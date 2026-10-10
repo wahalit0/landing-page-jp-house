@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JP House Ubud - Official Website</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .font-serif-custom {
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
+</head>
+<body class="bg-[#F7F4EF] text-gray-800 antialiased selection:bg-[#2D231E] selection:text-[#D4AF37]">
+
+    <!-- SINGLE STICKY NAVBAR WITH GLASSMORPHISM -->
+    <header class="sticky top-0 z-50 bg-[#2D231E]/90 backdrop-blur-md border-b border-[#D4AF37]/20 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2">
+                <div class="w-10 h-10 rounded-lg bg-[#A04730] flex items-center justify-center text-[#F7F4EF] font-serif-custom font-bold text-xl shadow-md border border-[#D4AF37]/30">JP</div>
+                <div>
+                    <span class="font-serif-custom text-xl font-bold tracking-wider text-white block leading-none">JP HOUSE</span>
+                </div>
+            </a>
+            
+            <!-- Desktop Nav Menu (Centered) -->
+            <nav class="hidden lg:flex items-center gap-8 font-medium text-sm text-gray-200">
+                <a href="#about" class="hover:text-[#D4AF37] transition nav-about">About</a>
+                <a href="#features" class="hover:text-[#D4AF37] transition nav-features">Features</a>
+                <a href="#rooms" class="hover:text-[#D4AF37] transition nav-rooms">Rooms</a>
+                <a href="#reviews" class="hover:text-[#D4AF37] transition nav-reviews">Reviews</a>
+                <a href="#gallery" class="hover:text-[#D4AF37] transition nav-location">gallery</a>
+            </nav>
+
+            <!-- Right Actions: Language Switcher & Book Now (Desktop) -->
+            <div class="hidden sm:flex items-center gap-4">
+                <!-- Language Switcher -->
+                <div class="flex items-center gap-1 bg-[#1F1815] p-1 rounded-lg border border-[#D4AF37]/30">
+                    <button onclick="switchLang('en')" id="btn-en" class="font-bold text-xs px-2.5 py-1 rounded transition bg-[#D4AF37] text-[#2D231E]">EN</button>
+                    <button onclick="switchLang('id')" id="btn-id" class="font-normal text-xs px-2.5 py-1 rounded transition text-gray-300 hover:text-[#D4AF37]">IN</button>
+                </div>
+                
+                <!-- Book Now Button -->
+                <a href="https://www.booking.com/Share-Ea2L7t" target="_blank" class="bg-[#A04730] hover:bg-[#873A25] text-white px-5 py-2.5 rounded-full font-semibold transition shadow-sm flex items-center gap-2 border border-[#D4AF37]/40 nav-book-btn text-sm">
+                    <i class="fab fa-whatsapp text-[#D4AF37]"></i> Book Now
+                </a>
+            </div>
+
+            <!-- Mobile Right Actions (Language Switcher + Hamburger Menu Button) -->
+            <div class="flex sm:hidden items-center gap-3">
+                <div class="flex items-center gap-1 bg-[#1F1815] p-1 rounded-lg border border-[#D4AF37]/30">
+                    <button onclick="switchLang('en')" id="mob-btn-en" class="font-bold text-xs px-2 py-0.5 rounded transition bg-[#D4AF37] text-[#2D231E]">EN</button>
+                    <button onclick="switchLang('id')" id="mob-btn-id" class="font-normal text-xs px-2 py-0.5 rounded transition text-gray-300">IN</button>
+                </div>
+                <button id="menu-btn" class="text-white text-2xl focus:outline-none">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-[#2D231E] border-t border-[#D4AF37]/20 px-6 py-6 space-y-4 shadow-xl">
+            <div class="flex items-center justify-between pb-4 border-b border-white/10">
+                <span class="text-xs text-[#D4AF37]"><i class="fas fa-map-marker-alt"></i> Ubud, Bali</span>
+            </div>
+            <a href="#about" class="block text-gray-200 font-medium py-2 nav-about">About</a>
+            <a href="#features" class="block text-gray-200 font-medium py-2 nav-features">Features</a>
+            <a href="#rooms" class="block text-gray-200 font-medium py-2 nav-rooms">Rooms</a>
+            <a href="#reviews" class="block text-gray-200 font-medium py-2 nav-reviews">Reviews</a>
+            <a href="#gallery" class="block text-gray-200 font-medium py-2 nav-location">gallery</a>
+            <a href="https://www.booking.com/Share-Ea2L7t" target="_blank" class="w-full bg-[#A04730] text-white py-3 rounded-xl font-semibold text-center flex items-center justify-center gap-2 mt-4 nav-book-btn">
+                <i class="fab fa-whatsapp text-[#D4AF37]"></i> Book Now
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+<section class="relative min-h-[85vh] flex items-center justify-center bg-[#2D231E] text-white overflow-hidden py-20 px-4">
+    <!-- Background Image Slider with Overlay -->
+    <div class="absolute inset-0 z-0 overflow-hidden">
+        <!-- Slide 1 -->
+        <div class="absolute inset-0 bg-cover bg-center opacity-25 transition-opacity duration-1000 ease-in-out hero-slide" style="background-image: url('asset/hero1.png')"></div>
+        <!-- Slide 2 -->
+        <div class="absolute inset-0 bg-cover bg-center opacity-0 transition-opacity duration-1000 ease-in-out hero-slide" style="background-image: url('asset/hero2.png')"></div>
+        <!-- Slide 3 -->
+        <div class="absolute inset-0 bg-cover bg-center opacity-0 transition-opacity duration-1000 ease-in-out hero-slide" style="background-image: url('asset/hero3.png')"></div>
+    </div>
+    
+    <div class="absolute inset-0 bg-gradient-to-t from-[#2D231E] via-[#2D231E]/70 to-transparent z-0"></div>
+
+    <div class="relative z-10 max-w-4xl mx-auto text-center space-y-6">
+        <span class="inline-flex items-center gap-2 bg-[#D4AF37]/15 text-[#D4AF37] border border-[#D4AF37]/30 px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold tracking-wider uppercase">
+            <i class="fas fa-leaf"></i> <span class="hero-badge">Authentic Balinese Stay in Ubud</span>
+        </span>
+        <h1 class="font-serif-custom text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-tight text-white hero-title">
+            Experience Tranquil <span class="text-[#D4AF37] italic">Luxury</span> in Ubud
+        </h1>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+            <a href="#rooms" class="w-full sm:w-auto bg-[#D4AF37] hover:bg-[#c29b38] text-[#2D231E] font-bold px-8 py-4 rounded-full transition shadow-lg text-center hero-explore">
+                Explore Rooms
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- JavaScript untuk Slider Background (Setiap 3 Detik) -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const slides = document.querySelectorAll(".hero-slide");
+        let currentSlide = 0;
+
+        function nextSlide() {
+            slides[currentSlide].style.opacity = "0";
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].style.opacity = "0.25"; // Sesuaikan dengan tingkat transparansi awal (opacity-25)
+        }
+
+        setInterval(nextSlide, 3000); // Berganti setiap 3 detik
+    });
+</script>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <span class="text-[#A04730] font-bold text-xs sm:text-sm tracking-widest uppercase about-tag">Welcome to JP House</span>
+                <h2 class="font-serif-custom text-3xl sm:text-4xl lg:text-5xl font-bold text-[#2D231E] leading-tight about-heading">
+                    Your Peaceful Sanctuary in the Heart of Ubud
+                </h2>
+                <p class="text-gray-600 leading-relaxed about-text-1">
+                    JP House is strategically located at Jl. Sri Wedari, Ubud, Bali offering a harmonious blend of traditional Balinese warmth and modern convenience. Whether you are traveling solo or with a partner, our homestay provides a quiet escape while keeping you close to Ubud's vibrant art markets, cafes, and sacred sites.
+                </p>
+                <p class="text-gray-600 leading-relaxed about-text-2">
+                    Enjoy spacious rooms equipped with top-tier amenities, high-speed internet for digital nomads, and expansive private balconies where you can unwind amidst tropical breezes.
+                </p>
+                <div class="grid grid-cols-2 gap-4 pt-2">
+                    <div class="bg-white p-4 rounded-xl border border-[#2D231E]/10 shadow-sm">
+                        <span class="block font-serif-custom text-2xl font-bold text-[#2D231E]">100%</span>
+                        <span class="text-xs text-gray-500 about-stat-1">Authentic Balinese Vibe</span>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl border border-[#2D231E]/10 shadow-sm">
+                        <span class="block font-serif-custom text-2xl font-bold text-[#2D231E]">5 Min</span>
+                        <span class="text-xs text-gray-500 about-stat-2">To Ubud Central Area</span>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <img src="asset/hero2.png" alt="Homestay room" class="rounded-2xl shadow-md w-full h-64 object-cover transform hover:scale-105 transition duration-300">
+                <img src="asset/hero1.png" alt="Balcony view" class="rounded-2xl shadow-md w-full h-64 object-cover mt-8 transform hover:scale-105 transition duration-300">
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES DETAIL SECTION -->
+    <section id="features" class="bg-white py-20 border-y border-[#2D231E]/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <span class="text-[#A04730] font-bold text-xs sm:text-sm tracking-widest uppercase features-tag">Why Choose Us</span>
+                <h2 class="font-serif-custom text-3xl sm:text-4xl font-bold text-[#2D231E] features-heading">Top Facilities & Features</h2>
+                <p class="text-gray-600 features-desc">Designed to give you maximum comfort, productivity, and relaxation during your stay in Bali.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-[#F7F4EF] p-8 rounded-2xl border border-[#2D231E]/10 hover:shadow-lg transition group">
+                    <div class="w-14 h-14 bg-[#2D231E] text-[#D4AF37] rounded-xl flex items-center justify-center text-xl mb-6 group-hover:bg-[#A04730] group-hover:text-white transition">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <h3 class="font-serif-custom text-xl font-bold text-[#2D231E] mb-3 f1-title">Ultra-Fast Wi-Fi</h3>
+                    <p class="text-gray-600 text-sm f1-text">High-speed internet connection reliable for video calls, remote working, and seamless streaming.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="bg-[#F7F4EF] p-8 rounded-2xl border border-[#2D231E]/10 hover:shadow-lg transition group">
+                    <div class="w-14 h-14 bg-[#2D231E] text-[#D4AF37] rounded-xl flex items-center justify-center text-xl mb-6 group-hover:bg-[#A04730] group-hover:text-white transition">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 class="font-serif-custom text-xl font-bold text-[#2D231E] mb-3 f2-title">Near Ubud Center</h3>
+                    <p class="text-gray-600 text-sm f2-text">Just minutes away from Monkey Forest, local art markets, traditional cafes, and yoga studios.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="bg-[#F7F4EF] p-8 rounded-2xl border border-[#2D231E]/10 hover:shadow-lg transition group">
+                    <div class="w-14 h-14 bg-[#2D231E] text-[#D4AF37] rounded-xl flex items-center justify-center text-xl mb-6 group-hover:bg-[#A04730] group-hover:text-white transition">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <h3 class="font-serif-custom text-xl font-bold text-[#2D231E] mb-3 f3-title">Spacious Balcony</h3>
+                    <p class="text-gray-600 text-sm f3-text">Private outdoor balcony area to enjoy your morning coffee while breathing in the fresh Ubud atmosphere.</p>
+                </div>
+                <!-- Feature 4 -->
+                <div class="bg-[#F7F4EF] p-8 rounded-2xl border border-[#2D231E]/10 hover:shadow-lg transition group">
+                    <div class="w-14 h-14 bg-[#2D231E] text-[#D4AF37] rounded-xl flex items-center justify-center text-xl mb-6 group-hover:bg-[#A04730] group-hover:text-white transition">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 class="font-serif-custom text-xl font-bold text-[#2D231E] mb-3 f4-title">Delicious Breakfast</h3>
+                    <p class="text-gray-600 text-sm f4-text">Start your morning with a tasty and wholesome breakfast served fresh to energize your day in Ubud.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROOMS SECTION -->
+    <section id="rooms" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+            <span class="text-[#A04730] font-bold text-xs sm:text-sm tracking-widest uppercase rooms-tag">Accommodation</span>
+            <h2 class="font-serif-custom text-3xl sm:text-4xl font-bold text-[#2D231E] rooms-heading">Our Rooms</h2>
+            <p class="text-gray-600 rooms-desc">Choose between our single or double occupant rooms. Both feature a luxurious King-size bed and top-class amenities.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <!-- Room 1: Single Occupant -->
+            <div class="bg-white rounded-3xl overflow-hidden border border-[#2D231E]/10 shadow-md flex flex-col justify-between">
+                <div>
+                    <div class="relative h-72 overflow-hidden">
+                        <img src="asset/hero2.png" alt="Single Room" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4 bg-[#2D231E] text-[#D4AF37] text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider room-1-badge">
+                            1 Person Room
+                        </div>
+                    </div>
+                    <div class="p-8 space-y-4">
+                        <h3 class="font-serif-custom text-2xl font-bold text-[#2D231E] room-1-title">Double Bad Room</h3>
+                        <p class="text-gray-600 text-sm room-1-desc">
+                            Ideal for solo travelers or digital nomads looking for a spacious, quiet environment with high-speed Wi-Fi and a comfortable Singel bed.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2 text-xs text-gray-500">
+                            <span class="bg-[#F7F4EF] px-3 py-1.5 rounded-lg border border-[#2D231E]/10"><i class="fas fa-bed text-[#2D231E] mr-1"></i> <span class="amenity-king">King Size Bed</span></span>
+                            <span class="bg-[#F7F4EF] px-3 py-1.5 rounded-lg border border-[#2D231E]/10"><i class="fas fa-wifi text-[#2D231E] mr-1"></i> <span class="amenity-wifi">Fast Wi-Fi</span></span>
+                            <span class="bg-[#F7F4EF] px-3 py-1.5 rounded-lg border border-[#2D231E]/10"><i class="fas fa-door-open text-[#2D231E] mr-1"></i> <span class="amenity-balcony">Private Balcony</span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-8 pt-0">
+                    <a href="https://www.booking.com/Share-Ea2L7t" target="_blank" class="w-full bg-[#2D231E] hover:bg-[#1F1815] text-[#D4AF37] py-3.5 rounded-xl font-bold text-center block transition shadow-sm book-room-1 border border-[#D4AF37]/30">
+                        <i class="fab fa-whatsapp mr-2"></i> Book Single Bad
+                    </a>
+                </div>
+            </div>
+    </section>
+
+   <!-- REVIEWS SECTION -->
+    <section id="reviews" class="bg-white py-20 border-y border-[#2D231E]/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-12 gap-6">
+                <div class="space-y-3 text-center md:text-left">
+                    <span class="text-[#A04730] font-bold text-xs sm:text-sm tracking-widest uppercase reviews-tag">Guest Testimonials</span>
+                    <h2 class="font-serif-custom text-3xl sm:text-4xl font-bold text-[#2D231E] reviews-heading">Visitor Reviews</h2>
+                    <p class="text-gray-600 reviews-desc">What guests who have stayed at JP House Ubud have to say.</p>
+                </div>
+                <!-- Google Rating Badge & Direct Rate CTA & Slider Navigation Buttons -->
+                <div class="flex flex-col sm:flex-row items-center gap-4">
+                    <div class="bg-[#F7F4EF] p-6 rounded-2xl border border-[#2D231E]/10 flex flex-col items-center sm:items-start gap-3 shadow-sm">
+                        <div class="flex items-center gap-3">
+                            <div class="text-3xl font-bold font-serif-custom text-[#2D231E]">4.8 / 5.0</div>
+                            <div class="text-yellow-500 text-sm">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-500 google-rating-sub">Based on verified reviews on Google & Travel Platforms</p>
+                        <a href="https://maps.google.com/?q=JP+House+Ubud+Jl.+Sri+Wedari+Gianyar+Bali" target="_blank" class="w-full bg-[#A04730] hover:bg-[#873A25] text-white text-xs font-bold px-4 py-2.5 rounded-xl transition text-center shadow-sm flex items-center justify-center gap-2 rate-btn">
+                            <i class="fas fa-star text-[#D4AF37]"></i> Rate on Google
+                        </a>
+                    </div>
+                    
+                    <!-- Navigation Arrows (< >) -->
+                    <div class="flex gap-2">
+                        <button id="slideLeft" aria-label="Previous Review" class="w-12 h-12 rounded-full bg-[#F7F4EF] hover:bg-[#2D231E] hover:text-white border border-[#2D231E]/10 text-[#2D231E] flex items-center justify-center transition shadow-sm">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button id="slideRight" aria-label="Next Review" class="w-12 h-12 rounded-full bg-[#F7F4EF] hover:bg-[#2D231E] hover:text-white border border-[#2D231E]/10 text-[#2D231E] flex items-center justify-center transition shadow-sm">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Horizontal Slider Container of 8 Reviews -->
+            <div id="reviewsSlider" class="flex gap-6 overflow-x-auto scroll-smooth pb-4 no-scrollbar">
+                <!-- Review 1 -->
+                <div class="bg-[#F7F4EF] p-6 rounded-2xl border border-[#2D231E]/10 flex flex-col justify-between min-w-[280px] sm:min-w-[320px] max-w-[320px] flex-shrink-0">
+                    <div class="space-y-3">
+                        <div class="text-yellow-500 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="text-gray-700 text-sm italic rev-1">“Room is clean, owner is very nice, the wife is very helpful, no complicated rules at all. They cleaned every 2 days.”</p>
+                    </div>
+                    <div class="pt-4 mt-4 border-t border-[#2D231E]/10 flex items-center justify-between">
+                        <span class="font-bold text-xs text-[#2D231E]">Eris</span>
+                        <span class="text-[10px] text-gray-400">Google Review</span>
+                    </div>
+                </div>
+                <!-- Review 2 -->
+                <div class="bg-[#F7F4EF] p-6 rounded-2xl border border-[#2D231E]/10 flex flex-col justify-between min-w-[280px] sm:min-w-[320px] max-w-[320px] flex-shrink-0">
+                    <div class="space-y-3">
+                        <div class="text-yellow-500 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="text-gray-700 text-sm italic rev-2">“The room has a beautiful view of Ubud and sunsets. Breakfast was very good, and the bed is comfortable.”</p>
+                    </div>
+                    <div class="pt-4 mt-4 border-t border-[#2D231E]/10 flex items-center justify-between">
+                        <span class="font-bold text-xs text-[#2D231E]">Paisleigh</span>
+                        <span class="text-[10px] text-gray-400">Google Review</span>
+                    </div>
+                </div>
+                <!-- Review 3 -->
+                <div class="bg-[#F7F4EF] p-6 rounded-2xl border border-[#2D231E]/10 flex flex-col justify-between min-w-[280px] sm:min-w-[320px] max-w-[320px] flex-shrink-0">
+                    <div class="space-y-3">
+                        <div class="text-yellow-500 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="text-gray-700 text-sm italic rev-3">“The location is very strategic in the middle of central Ubud. So you can walking around come to shops nearby.”</p>
+                    </div>
+                    <div class="pt-4 mt-4 border-t border-[#2D231E]/10 flex items-center justify-between">
+                        <span class="font-bold text-xs text-[#2D231E]">Roro</span>
+                        <span class="text-[10px] text-gray-400">Google Review</span>
+                    </div>
+                </div>
+                <!-- Review 4 -->
+                <div class="bg-[#F7F4EF] p-6 rounded-2xl border border-[#2D231E]/10 flex flex-col justify-between min-w-[280px] sm:min-w-[320px] max-w-[320px] flex-shrink-0">
+                    <div class="space-y-3">
+                        <div class="text-yellow-500 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="text-gray-700 text-sm italic rev-4">“The great place to stay in Ubud, good location to reach main sightseeings. The hosts are super friendly and the view is awesome!”</p>
+                    </div>
+                    <div class="pt-4 mt-4 border-t border-[#2D231E]/10 flex items-center justify-between">
+                        <span class="font-bold text-xs text-[#2D231E]">M. Marharyta</span>
+                        <span class="text-[10px] text-gray-400">Google Review</span>
+                    </div>
+                </div>
+                <!-- Review 5 -->
+                <div class="bg-[#F7F4EF] p-6 rounded-2xl border border-[#2D231E]/10 flex flex-col justify-between min-w-[280px] sm:min-w-[320px] max-w-[320px] flex-shrink-0">
+                    <div class="space-y-3">
+                        <div class="text-yellow-500 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="text-gray-700 text-sm italic rev-5">“Very welcoming owners. Breakfast was always on time and great help in finding rental motorcycles at good price.”</p>
+                    </div>
+                    <div class="pt-4 mt-4 border-t border-[#2D231E]/10 flex items-center justify-between">
+                        <span class="font-bold text-xs text-[#2D231E]">Nabeel</span>
+                        <span class="text-[10px] text-gray-400">Google Review</span>
+                    </div>
+                </div>
+                <!-- Review 6 -->
+                <div class="bg-[#F7F4EF] p-6 rounded-2xl border border-[#2D231E]/10 flex flex-col justify-between min-w-[280px] sm:min-w-[320px] max-w-[320px] flex-shrink-0">
+                    <div class="space-y-3">
+                        <div class="text-yellow-500 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="text-gray-700 text-sm italic rev-6">“Very homey stay, big room with a balcony with a view of the town. Wifi and hot water is very good. Great affordable stay!”</p>
+                    </div>
+                    <div class="pt-4 mt-4 border-t border-[#2D231E]/10 flex items-center justify-between">
+                        <span class="font-bold text-xs text-[#2D231E]">Nina</span>
+                        <span class="text-[10px] text-gray-400">Google Review</span>
+                    </div>
+                </div>
+                <!-- Review 7 -->
+                <div class="bg-[#F7F4EF] p-6 rounded-2xl border border-[#2D231E]/10 flex flex-col justify-between min-w-[280px] sm:min-w-[320px] max-w-[320px] flex-shrink-0">
+                    <div class="space-y-3">
+                        <div class="text-yellow-500 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="text-gray-700 text-sm italic rev-7">“Very nice place in the heart of Ubud. Restaurants, cafes and Ubud Palace nearby. Hosts very receptive and helpful.”</p>
+                    </div>
+                    <div class="pt-4 mt-4 border-t border-[#2D231E]/10 flex items-center justify-between">
+                        <span class="font-bold text-xs text-[#2D231E]">Rothaarige</span>
+                        <span class="text-[10px] text-gray-400">Google Review</span>
+                    </div>
+                </div>
+                <!-- Review 8 -->
+                <div class="bg-[#F7F4EF] p-6 rounded-2xl border border-[#2D231E]/10 flex flex-col justify-between min-w-[280px] sm:min-w-[320px] max-w-[320px] flex-shrink-0">
+                    <div class="space-y-3">
+                        <div class="text-yellow-500 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="text-gray-700 text-sm italic rev-8">“The balcony outside the room makes a great place to watch the world go by. Friendly staff. Great location.”</p>
+                    </div>
+                    <div class="pt-4 mt-4 border-t border-[#2D231E]/10 flex items-center justify-between">
+                        <span class="font-bold text-xs text-[#2D231E]">Paul</span>
+                        <span class="text-[10px] text-gray-400">Google Review</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Script Pendukung Tombol Geser (< >) -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const slider = document.getElementById("reviewsSlider");
+            const btnLeft = document.getElementById("slideLeft");
+            const btnRight = document.getElementById("slideRight");
+
+            if (slider && btnLeft && btnRight) {
+                btnLeft.addEventListener("click", () => {
+                    slider.scrollBy({ left: -340, behavior: 'smooth' });
+                });
+                btnRight.addEventListener("click", () => {
+                    slider.scrollBy({ left: 340, behavior: 'smooth' });
+                });
+            }
+        });
+    </script>
+
+    <!-- CSS Tambahan untuk Menyembunyikan Scrollbar tapi Tetap Bisa Digeser -->
+    <style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+
+    <!-- GALLERY SECTION -->
+    <section id="gallery" class="py-20 bg-[#F7F4EF]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="text-[#A04730] font-bold text-xs sm:text-sm tracking-widest uppercase gallery-tag">Dokumentasi & Suasana</span>
+                <h2 class="font-serif-custom text-3xl sm:text-4xl font-bold text-[#2D231E] gallery-heading">Galeri Foto JP House Ubud</h2>
+                <p class="text-gray-600 gallery-desc">Jelajahi keindahan kamar, kenyamanan fasilitas, dan suasana asri di sekitar penginapan kami.</p>
+            </div>
+
+            <!-- Grid 12 Foto Elegant (3 Kolom ke bawah / Responsif) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <!-- Foto 1 -->
+                <div class="group relative h-72 rounded-2xl overflow-hidden shadow-sm border border-[#2D231E]/10 bg-white">
+                    <img src="asset/hero2.png" alt="JP House Ubud Gallery 1" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#2D231E]/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        <span class="text-white text-sm font-medium tracking-wide">Suasana Kamar </span>
+                    </div>
+                </div>
+                <!-- Foto 2 -->
+                <div class="group relative h-72 rounded-2xl overflow-hidden shadow-sm border border-[#2D231E]/10 bg-white">
+                    <img src="asset/hero4.png" alt="JP House Ubud Gallery 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#2D231E]/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        <span class="text-white text-sm font-medium tracking-wide">Kamar Tidur Luas</span>
+                    </div>
+                </div>
+                <!-- Foto 3 -->
+                <div class="group relative h-72 rounded-2xl overflow-hidden shadow-sm border border-[#2D231E]/10 bg-white">
+                    <img src="asset/hero5.png" alt="JP House Ubud Gallery 3" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#2D231E]/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        <span class="text-white text-sm font-medium tracking-wide">Kenyamanan & Interior</span>
+                    </div>
+                </div>
+                <!-- Foto 4 -->
+                <div class="group relative h-72 rounded-2xl overflow-hidden shadow-sm border border-[#2D231E]/10 bg-white">
+                    <img src="asset/hero1.png" alt="JP House Ubud Gallery 4" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#2D231E]/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        <span class="text-white text-sm font-medium tracking-wide">Suasana Balkon</span>
+                    </div>
+                </div>
+                <!-- Foto 5 -->
+                <div class="group relative h-72 rounded-2xl overflow-hidden shadow-sm border border-[#2D231E]/10 bg-white">
+                    <img src="asset/hero6.png" alt="JP House Ubud Gallery 5" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#2D231E]/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        <span class="text-white text-sm font-medium tracking-wide"> Balkon Yang Luas</span>
+                    </div>
+                </div>
+                <!-- Foto 6 -->
+                <div class="group relative h-72 rounded-2xl overflow-hidden shadow-sm border border-[#2D231E]/10 bg-white">
+                    <img src="asset/hero7.png" alt="JP House Ubud Gallery 6" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#2D231E]/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        <span class="text-white text-sm font-medium tracking-wide">Interior Balkon</span>
+                    </div>
+                </div>
+                <!-- Foto 7 -->
+                <div class="group relative h-72 rounded-2xl overflow-hidden shadow-sm border border-[#2D231E]/10 bg-white">
+                    <img src="asset/hero3.png" alt="JP House Ubud Gallery 7" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#2D231E]/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        <span class="text-white text-sm font-medium tracking-wide">Makanan Khas Bali</span>
+                    </div>
+                </div>
+                <!-- Foto 8 -->
+                <div class="group relative h-72 rounded-2xl overflow-hidden shadow-sm border border-[#2D231E]/10 bg-white">
+                    <img src="asset/hero8.png" alt="JP House Ubud Gallery 8" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#2D231E]/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        <span class="text-white text-sm font-medium tracking-wide">Breakfast</span>
+                    </div>
+                </div>
+                <!-- Foto 9 -->
+                <div class="group relative h-72 rounded-2xl overflow-hidden shadow-sm border border-[#2D231E]/10 bg-white">
+                    <img src="asset/hero9.png" alt="JP House Ubud Gallery 9" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#2D231E]/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        <span class="text-white text-sm font-medium tracking-wide">Makanan Sehat</span>
+                    </div>
+                </div>
+                <!-- Foto 10 -->
+                <div class="group relative h-72 rounded-2xl overflow-hidden shadow-sm border border-[#2D231E]/10 bg-white">
+                    <img src="asset/hero10.png" alt="JP House Ubud Gallery 10" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#2D231E]/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        <span class="text-white text-sm font-medium tracking-wide">Papan Nama</span>
+                    </div>
+                </div>
+                <!-- Foto 11 -->
+                <div class="group relative h-72 rounded-2xl overflow-hidden shadow-sm border border-[#2D231E]/10 bg-white">
+                    <img src="asset/hero11.png" alt="JP House Ubud Gallery 11" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#2D231E]/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        <span class="text-white text-sm font-medium tracking-wide">Suasana Khas Bali</span>
+                    </div>
+                </div>
+                <!-- Foto 12 -->
+                <div class="group relative h-72 rounded-2xl overflow-hidden shadow-sm border border-[#2D231E]/10 bg-white">
+                    <img src="asset/hero12.png" alt="JP House Ubud Gallery 12" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#2D231E]/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        <span class="text-white text-sm font-medium tracking-wide">Interior Khas Bali</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#2D231E] text-white py-12 px-4 sm:px-6 lg:px-8 border-t border-[#D4AF37]/20">
+            <div class="text-center text-xs text-gray-400">
+                <p>&copy; 2026 JP House Ubud. All rights reserved.</p>
+            </div>
+    </footer>
+
+    <!-- JAVASCRIPT FOR LANGUAGE SWITCHER & MOBILE MENU -->
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Language Dictionary (EN & ID)
+        const langData = {
+            en: {
+                navAbout: "About",
+                navFeatures: "Features",
+                navRooms: "Rooms",
+                navReviews: "Reviews",
+                navLocation: "gallery",
+                navBookBtn: '<i class="fab fa-whatsapp text-[#D4AF37]"></i> Book Now',
+                heroBadge: "Authentic Balinese Stay in Ubud",
+                heroTitle: 'Experience Tranquil <span class="text-[#D4AF37] italic">Luxury</span> in Ubud',
+                heroSubtitle: "Nestled near the heart of Ubud and Monkey Forest, JP House offers spacious rooms, wide private balconies, and ultra-fast Wi-Fi for your ultimate comfort.",
+                heroExplore: "Explore Rooms",
+                heroWa: '<i class="fab fa-whatsapp text-[#D4AF37]"></i> Contact via WhatsApp',
+                f1Title: "Ultra-Fast Wi-Fi", f1Desc: "Perfect for remote work & streaming",
+                f2Title: "Prime Location", f2Desc: "Close to Ubud Center & Monkey Forest",
+                f3Title: "Spacious Balcony", f3Desc: "Relaxing outdoor view",
+                f4Title: "Delicious Breakfast", f4Desc: "Tasty and wholesome breakfast served fresh every morning.",
+                aboutTag: "Welcome to JP House",
+                aboutHeading: "Your Peaceful Sanctuary in the Heart of Ubud",
+                aboutText1: "JP House is strategically located at Jl. Sri Wedari, Ubud, offering a harmonious blend of traditional Balinese warmth and modern convenience. Whether you are traveling solo or with a partner, our homestay provides a quiet escape while keeping you close to Ubud's vibrant art markets, cafes, and sacred sites.",
+                aboutText2: "Enjoy spacious rooms equipped with top-tier amenities, high-speed internet for digital nomads, and expansive private balconies where you can unwind amidst tropical breezes.",
+                aboutStat1: "Authentic Balinese Vibe",
+                aboutStat2: "To Ubud Central Area",
+                featuresTag: "Why Choose Us",
+                featuresHeading: "Top Facilities & Features",
+                featuresDesc: "Designed to give you maximum comfort, productivity, and relaxation during your stay in Bali.",
+                feat1Title: "Ultra-Fast Wi-Fi", feat1Text: "High-speed internet connection reliable for video calls, remote working, and seamless streaming.",
+                feat2Title: "Near Ubud Center", feat2Text: "Just minutes away from Monkey Forest, local art markets, traditional cafes, and yoga studios.",
+                feat3Title: "Spacious Balcony", feat3Text: "Private outdoor balcony area to enjoy your morning coffee while breathing in the fresh Ubud atmosphere.",
+                feat4Title: "Breakfast", feat4Text: "Start your morning with a tasty and wholesome breakfast served fresh to energize your day in Ubud.",
+                roomsTag: "Accommodation",
+                roomsHeading: "Our Rooms",
+                roomsDesc: "Choose between our single or double occupant rooms. Both feature a luxurious King-size bed and top-class amenities.",
+                room1Badge: "1 Person Room",
+                room1Title: "Deluxe double King Room",
+                room1Desc: "Ideal for solo travelers or digital nomads looking for a spacious, quiet environment with high-speed Wi-Fi and a comfortable King-size bed.",
+                room2Badge: "2 Persons Room",
+                room2Title: "Deluxe Double King Room",
+                room2Desc: "Perfect for couples or two guests seeking a wide, relaxing room equipped with a plush King-size bed, private balcony, and peaceful views.",
+                amenityKing: "King Size Bed",
+                amenityWifi: "Fast Wi-Fi",
+                amenityBalcony: "Private Balcony",
+                bookRoom1: '<i class="fab fa-whatsapp mr-2"></i> Book Single Room',
+                bookRoom2: '<i class="fab fa-whatsapp mr-2"></i> Book Double Room',
+                reviewsTag: "Guest Testimonials",
+                reviewsHeading: "Visitor Reviews",
+                reviewsDesc: "What guests who have stayed at JP House Ubud have to say.",
+                googleRatingSub: "Based on verified reviews on Google & Travel Platforms",
+                rateBtn: '<i class="fas fa-star text-[#D4AF37]"></i> Rate on Google',
+                rev1: "“Room is clean, owner is very nice, the wife is very helpful, no complicated rules at all. They cleaned every 2 days.”",
+                rev2: "“The room has a beautiful view of Ubud and sunsets. Breakfast was very good, and the bed is comfortable.”",
+                rev3: "“The location is very strategic in the middle of central Ubud. So you can walking around come to shops nearby.”",
+                rev4: "“The great place to stay in Ubud, good location to reach main sightseeings. The hosts are super friendly and the view is awesome!”",
+                rev5: "“Very welcoming owners. Breakfast was always on time and great help in finding rental motorcycles at good price.”",
+                rev6: "“Very homey stay, big room with a balcony with a view of the town. Wifi and hot water is very good. Great affordable stay!”",
+                rev7: "“Very nice place in the heart of Ubud. Restaurants, cafes and Ubud Palace nearby. Hosts very receptive and helpful.”",
+                rev8: "“The balcony outside the room makes a great place to watch the world go by. Friendly staff. Great location.”",
+                galleryTag: "Documentation & Atmosphere",
+                galleryHeading: "JP House Ubud Photo Gallery",
+                galleryDesc: "Explore the beauty of the rooms, comfortable facilities, and lush surroundings of our homestay.",
+                footerDesc: "Your cozy and peaceful homestay experience in Ubud, Bali."
+            },
+            id: {
+                navAbout: "Tentang",
+                navFeatures: "Fasilitas",
+                navRooms: "Kamar",
+                navReviews: "Ulasan",
+                navLocation: "Galeri",
+                navBookBtn: '<i class="fab fa-whatsapp text-[#D4AF37]"></i> Pesan Sekarang',
+                heroBadge: "Penginapan Autentik Bali di Ubud",
+                heroTitle: 'Nikmati Kenyamanan <span class="text-[#D4AF37] italic">Tenang</span> di Ubud',
+                heroSubtitle: "Terletak dekat pusat Ubud dan Monkey Forest, JP House menawarkan kamar luas, balkon pribadi yang lebar, serta Wi-Fi super cepat untuk kenyamanan maksimal Anda.",
+                heroExplore: "Lihat Kamar",
+                heroWa: '<i class="fab fa-whatsapp text-[#D4AF37]"></i> Hubungi via WhatsApp',
+                f1Title: "Wi-Fi Kencang", f1Desc: "Sempurna untuk kerja jarak jauh & streaming",
+                f2Title: "Lokasi Strategis", f2Desc: "Dekat Pusat Ubud & Monkey Forest",
+                f3Title: "Balkon Luas", f3Desc: "Area santai dengan pemandangan terbuka",
+                f4Title: "Sarapan Enak", f4Desc: "Sarapan lezat dan bergizi yang disajikan segar setiap pagi.",
+                aboutTag: "Selamat Datang di JP House",
+                aboutHeading: "Tempat Perlindungan Damai di Jantung Ubud",
+                aboutText1: "JP House berlokasi strategis di Jl. Sri Wedari, Ubud, menawarkan perpaduan harmonis antara kehangatan tradisional Bali dan kenyamanan modern. Baik Anda bepergian sendiri atau bersama pasangan, homestay kami menyediakan tempat pelarian yang tenang namun tetap dekat dengan pasar seni, kafe, dan situs budaya Ubud.",
+                aboutText2: "Nikmati kamar luas yang dilengkapi fasilitas kelas atas, internet kecepatan tinggi untuk para pekerja digital, serta balkon pribadi luas tempat Anda bersantai di tengah sejuknya angin tropis.",
+                aboutStat1: "Nuansa Autentik Bali",
+                aboutStat2: "Ke Pusat Ubud",
+                featuresTag: "Kenapa Memilih Kami",
+                featuresHeading: "Fasilitas & Keunggulan Utama",
+                featuresDesc: "Dirancang untuk memberikan kenyamanan, produktivitas, dan relaksasi maksimal selama liburan Anda di Bali.",
+                feat1Title: "Wi-Fi Super Cepat", feat1Text: "Koneksi internet berkecepatan tinggi yang andal untuk panggilan video, kerja remote, dan streaming lancar.",
+                feat2Title: "Dekat Pusat Ubud", feat2Text: "Hanya beberapa menit dari Monkey Forest, pasar seni lokal, kafe tradisional, dan studio yoga.",
+                feat3Title: "Balkon Luas", feat3Text: "Area balkon luar ruangan pribadi untuk menikmati kopi pagi sambil menghirup udara segar Ubud.",
+                feat4Title: "Sarapan", feat4Text: "Awali pagi Anda dengan sarapan lezat dan bergizi yang disajikan segar untuk membangkitkan semangat hari Anda di Ubud.",
+                roomsTag: "Akomodasi",
+                roomsHeading: "Pilihan Kamar Kami",
+                roomsDesc: "Pilih kamar untuk 1 orang atau 2 orang tamu. Keduanya dilengkapi kasur mewah ukuran King dan fasilitas unggulan.",
+                room1Badge: "Kamar 2 Orang",
+                room1Title: "Deluxe double King Room",
+                room1Desc: "Ideal untuk solo traveler atau pekerja digital yang mencari lingkungan luas dan tenang dengan Wi-Fi super cepat serta kasur King size yang nyaman.",
+                room2Badge: "Kamar 2 Orang",
+                room2Title: "Deluxe Double King Room",
+                room2Desc: "Sempurna untuk pasangan atau 2 tamu yang mencari kamar lapang dan santai dilengkapi kasur King size empuk, balkon pribadi, serta suasana tenang.",
+                amenityKing: "Kasur King Size",
+                amenityWifi: "Wi-Fi Kencang",
+                amenityBalcony: "Balkon Pribadi",
+                bookRoom1: '<i class="fab fa-whatsapp mr-2"></i> Pesan Kamar Single',
+                bookRoom2: '<i class="fab fa-whatsapp mr-2"></i> Pesan Kamar Double',
+                reviewsTag: "Testimoni Tamu",
+                reviewsHeading: "Ulasan Pengunjung",
+                reviewsDesc: "Apa kata tamu yang pernah menginap di JP House Ubud.",
+                googleRatingSub: "Berdasarkan ulasan terverifikasi di Google & Platform Travel",
+                rateBtn: '<i class="fas fa-star text-[#D4AF37]"></i> Berikan Ulasan di Google',
+                rev1: "“Kamar bersih, pemilik sangat ramah, istrinya sangat membantu, tidak ada aturan yang rumit sama sekali. Mereka membersihkan kamar setiap 2 hari.”",
+                rev2: "“Kamar memiliki pemandangan Ubud dan matahari terbenam yang indah. Sarapannya sangat enak, dan kasurnya nyaman.”",
+                rev3: "“Lokasinya sangat strategis di tengah pusat Ubud. Jadi Anda bisa berjalan kaki mendatangi toko-toko di sekitar.”",
+                rev4: "“Tempat yang bagus untuk menginap di Ubud, lokasi bagus untuk menjangkau tempat wisata utama. Tuan rumah sangat ramah dan pemandangannya luar biasa!”",
+                rev5: "“Pemilik yang sangat menyambut. Sarapan selalu tepat waktu dan sangat membantu mencarikan sewa motor dengan harga bagus.”",
+                rev6: "“Penginapan yang sangat terasa seperti rumah sendiri, kamar besar dengan balkon pemandangan kota. Wi-Fi dan air panas sangat bagus. Sangat terjangkau!”",
+                rev7: "“Tempat yang sangat bagus di jantung Ubud. Restoran, kafe, dan Ubud Palace di dekat sini. Tuan rumah sangat responsif dan membantu.”",
+                rev8: "“Balkon di luar kamar adalah tempat yang bagus untuk melihat suasana sekitar. Staf yang ramah. Lokasi yang hebat.”",
+                galleryTag: "Dokumentasi & Suasana",
+                galleryHeading: "Galeri Foto JP House Ubud",
+                galleryDesc: "Jelajahi keindahan kamar, kenyamanan fasilitas, dan suasana asri di sekitar penginapan kami.",
+                footerDesc: "Pengalaman homestay yang nyaman dan damai di Ubud, Bali."
+            }
+        };
+
+        function switchLang(lang) {
+            // Update active states for buttons (Desktop & Mobile)
+            const btnEn = document.getElementById('btn-en');
+            const btnId = document.getElementById('btn-id');
+            const mobBtnEn = document.getElementById('mob-btn-en');
+            const mobBtnId = document.getElementById('mob-btn-id');
+            
+            if(lang === 'en') {
+                if(btnEn) btnEn.className = "font-bold text-xs px-2.5 py-1 rounded transition bg-[#D4AF37] text-[#2D231E]";
+                if(btnId) btnId.className = "font-normal text-xs px-2.5 py-1 rounded transition text-gray-300 hover:text-[#D4AF37]";
+                if(mobBtnEn) mobBtnEn.className = "font-bold text-xs px-2 py-0.5 rounded transition bg-[#D4AF37] text-[#2D231E]";
+                if(mobBtnId) mobBtnId.className = "font-normal text-xs px-2 py-0.5 rounded transition text-gray-300";
+            } else {
+                if(btnId) btnId.className = "font-bold text-xs px-2.5 py-1 rounded transition bg-[#D4AF37] text-[#2D231E]";
+                if(btnEn) btnEn.className = "font-normal text-xs px-2.5 py-1 rounded transition text-gray-300 hover:text-[#D4AF37]";
+                if(mobBtnId) mobBtnId.className = "font-bold text-xs px-2 py-0.5 rounded transition bg-[#D4AF37] text-[#2D231E]";
+                if(mobBtnEn) mobBtnEn.className = "font-normal text-xs px-2 py-0.5 rounded transition text-gray-300";
+            }
+
+            // Apply translations
+            const t = langData[lang];
+            
+            document.querySelectorAll('.nav-about').forEach(el => el.innerText = t.navAbout);
+            document.querySelectorAll('.nav-features').forEach(el => el.innerText = t.navFeatures);
+            document.querySelectorAll('.nav-rooms').forEach(el => el.innerText = t.navRooms);
+            document.querySelectorAll('.nav-reviews').forEach(el => el.innerText = t.navReviews);
+            document.querySelectorAll('.nav-location').forEach(el => el.innerText = t.navLocation);
+            document.querySelectorAll('.nav-book-btn').forEach(el => el.innerHTML = t.navBookBtn);
+
+            const heroBadgeEl = document.querySelector('.hero-badge');
+            if(heroBadgeEl) heroBadgeEl.innerText = t.heroBadge;
+            const heroTitleEl = document.querySelector('.hero-title');
+            if(heroTitleEl) heroTitleEl.innerHTML = t.heroTitle;
+            const heroExploreEl = document.querySelector('.hero-explore');
+            if(heroExploreEl) heroExploreEl.innerText = t.heroExplore;
+
+            const aboutTagEl = document.querySelector('.about-tag');
+            if(aboutTagEl) aboutTagEl.innerText = t.aboutTag;
+            const aboutHeadingEl = document.querySelector('.about-heading');
+            if(aboutHeadingEl) aboutHeadingEl.innerText = t.aboutHeading;
+            const aboutText1El = document.querySelector('.about-text-1');
+            if(aboutText1El) aboutText1El.innerText = t.aboutText1;
+            const aboutText2El = document.querySelector('.about-text-2');
+            if(aboutText2El) aboutText2El.innerText = t.aboutText2;
+            const aboutStat1El = document.querySelector('.about-stat-1');
+            if(aboutStat1El) aboutStat1El.innerText = t.aboutStat1;
+            const aboutStat2El = document.querySelector('.about-stat-2');
+            if(aboutStat2El) aboutStat2El.innerText = t.aboutStat2;
+
+            const featuresTagEl = document.querySelector('.features-tag');
+            if(featuresTagEl) featuresTagEl.innerText = t.featuresTag;
+            const featuresHeadingEl = document.querySelector('.features-heading');
+            if(featuresHeadingEl) featuresHeadingEl.innerText = t.featuresHeading;
+            const featuresDescEl = document.querySelector('.features-desc');
+            if(featuresDescEl) featuresDescEl.innerText = t.featuresDesc;
+
+            const fCards = document.querySelectorAll('#features .grid > div');
+            if(fCards.length >= 4) {
+                fCards[0].querySelector('h3').innerText = t.f1Title; fCards[0].querySelector('p').innerText = t.f1Desc;
+                fCards[1].querySelector('h3').innerText = t.f2Title; fCards[1].querySelector('p').innerText = t.f2Desc;
+                fCards[2].querySelector('h3').innerText = t.f3Title; fCards[2].querySelector('p').innerText = t.f3Desc;
+                fCards[3].querySelector('h3').innerText = t.f4Title; fCards[3].querySelector('p').innerText = t.f4Desc;
+            }
+
+            const roomsTagEl = document.querySelector('.rooms-tag');
+            if(roomsTagEl) roomsTagEl.innerText = t.roomsTag;
+            const roomsHeadingEl = document.querySelector('.rooms-heading');
+            if(roomsHeadingEl) roomsHeadingEl.innerText = t.roomsHeading;
+            const roomsDescEl = document.querySelector('.rooms-desc');
+            if(roomsDescEl) roomsDescEl.innerText = t.roomsDesc;
+
+            const room1BadgeEl = document.querySelector('.room-1-badge');
+            if(room1BadgeEl) room1BadgeEl.innerText = t.room1Badge;
+            const room1TitleEl = document.querySelector('.room-1-title');
+            if(room1TitleEl) room1TitleEl.innerText = t.room1Title;
+            const room1DescEl = document.querySelector('.room-1-desc');
+            if(room1DescEl) room1DescEl.innerText = t.room1Desc;
+            const bookRoom1El = document.querySelector('.book-room-1');
+            if(bookRoom1El) bookRoom1El.innerHTML = t.bookRoom1;
+
+            const room2BadgeEl = document.querySelector('.room-2-badge');
+            if(room2BadgeEl) room2BadgeEl.innerText = t.room2Badge;
+            const room2TitleEl = document.querySelector('.room-2-title');
+            if(room2TitleEl) room2TitleEl.innerText = t.room2Title;
+            const room2DescEl = document.querySelector('.room-2-desc');
+            if(room2DescEl) room2DescEl.innerText = t.room2Desc;
+            const bookRoom2El = document.querySelector('.book-room-2');
+            if(bookRoom2El) bookRoom2El.innerHTML = t.bookRoom2;
+
+            document.querySelectorAll('.amenity-king').forEach(el => el.innerText = t.amenityKing);
+            document.querySelectorAll('.amenity-wifi').forEach(el => el.innerText = t.amenityWifi);
+            document.querySelectorAll('.amenity-balcony').forEach(el => el.innerText = t.amenityBalcony);
+
+            const reviewsTagEl = document.querySelector('.reviews-tag');
+            if(reviewsTagEl) reviewsTagEl.innerText = t.reviewsTag;
+            const reviewsHeadingEl = document.querySelector('.reviews-heading');
+            if(reviewsHeadingEl) reviewsHeadingEl.innerText = t.reviewsHeading;
+            const reviewsDescEl = document.querySelector('.reviews-desc');
+            if(reviewsDescEl) reviewsDescEl.innerText = t.reviewsDesc;
+            const googleRatingSubEl = document.querySelector('.google-rating-sub');
+            if(googleRatingSubEl) googleRatingSubEl.innerText = t.googleRatingSub;
+            const rateBtnEl = document.querySelector('.rate-btn');
+            if(rateBtnEl) rateBtnEl.innerHTML = t.rateBtn;
+
+            const rev1El = document.querySelector('.rev-1'); if(rev1El) rev1El.innerText = t.rev1;
+            const rev2El = document.querySelector('.rev-2'); if(rev2El) rev2El.innerText = t.rev2;
+            const rev3El = document.querySelector('.rev-3'); if(rev3El) rev3El.innerText = t.rev3;
+            const rev4El = document.querySelector('.rev-4'); if(rev4El) rev4El.innerText = t.rev4;
+            const rev5El = document.querySelector('.rev-5'); if(rev5El) rev5El.innerText = t.rev5;
+            const rev6El = document.querySelector('.rev-6'); if(rev6El) rev6El.innerText = t.rev6;
+            const rev7El = document.querySelector('.rev-7'); if(rev7El) rev7El.innerText = t.rev7;
+            const rev8El = document.querySelector('.rev-8'); if(rev8El) rev8El.innerText = t.rev8;
+
+            const galleryTagEl = document.querySelector('.gallery-tag');
+            if(galleryTagEl) galleryTagEl.innerText = t.galleryTag;
+            const galleryHeadingEl = document.querySelector('.gallery-heading');
+            if(galleryHeadingEl) galleryHeadingEl.innerText = t.galleryHeading;
+            const galleryDescEl = document.querySelector('.gallery-desc');
+            if(galleryDescEl) galleryDescEl.innerText = t.galleryDesc;
+        }
+
+        // Default set to English on first load
+        document.addEventListener("DOMContentLoaded", function() {
+            switchLang('en');
+        });
+    </script>
+</body>
+</html>
